@@ -13,6 +13,7 @@
 		4305264929C4F0E90019BBBD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4305264829C4F0E90019BBBD /* Preview Assets.xcassets */; };
 		4305264B29C4F0E90019BBBD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305264A29C4F0E90019BBBD /* Persistence.swift */; };
 		4305264E29C4F0E90019BBBD /* TasksList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4305264C29C4F0E90019BBBD /* TasksList.xcdatamodeld */; };
+		4305265629C4F2F00019BBBD /* Sound in Resources */ = {isa = PBXBuildFile; fileRef = 4305265529C4F2EF0019BBBD /* Sound */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		4305264829C4F0E90019BBBD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4305264A29C4F0E90019BBBD /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4305264D29C4F0E90019BBBD /* TasksList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TasksList.xcdatamodel; sourceTree = "<group>"; };
+		4305265529C4F2EF0019BBBD /* Sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sound; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +57,10 @@
 		4305264029C4F0E80019BBBD /* TasksList */ = {
 			isa = PBXGroup;
 			children = (
+				4305264529C4F0E90019BBBD /* Assets.xcassets */,
+				4305265429C4F2DA0019BBBD /* Resources */,
 				4305264129C4F0E80019BBBD /* TasksListApp.swift */,
 				4305264329C4F0E80019BBBD /* ContentView.swift */,
-				4305264529C4F0E90019BBBD /* Assets.xcassets */,
 				4305264A29C4F0E90019BBBD /* Persistence.swift */,
 				4305264C29C4F0E90019BBBD /* TasksList.xcdatamodeld */,
 				4305264729C4F0E90019BBBD /* Preview Content */,
@@ -71,6 +74,14 @@
 				4305264829C4F0E90019BBBD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4305265429C4F2DA0019BBBD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4305265529C4F2EF0019BBBD /* Sound */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +142,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4305265629C4F2F00019BBBD /* Sound in Resources */,
 				4305264929C4F0E90019BBBD /* Preview Assets.xcassets in Resources */,
 				4305264629C4F0E90019BBBD /* Assets.xcassets in Resources */,
 			);
