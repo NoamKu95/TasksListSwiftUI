@@ -14,6 +14,7 @@
 		4305264B29C4F0E90019BBBD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305264A29C4F0E90019BBBD /* Persistence.swift */; };
 		4305264E29C4F0E90019BBBD /* TasksList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4305264C29C4F0E90019BBBD /* TasksList.xcdatamodeld */; };
 		4305265629C4F2F00019BBBD /* Sound in Resources */ = {isa = PBXBuildFile; fileRef = 4305265529C4F2EF0019BBBD /* Sound */; };
+		4305265D29C608AF0019BBBD /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305265C29C608AF0019BBBD /* Formatters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4305264D29C4F0E90019BBBD /* TasksList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TasksList.xcdatamodel; sourceTree = "<group>"; };
 		4305265529C4F2EF0019BBBD /* Sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sound; sourceTree = "<group>"; };
 		4305265B29C5AB7A0019BBBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4305265C29C608AF0019BBBD /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		4305265929C5AACB0019BBBD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4305265C29C608AF0019BBBD /* Formatters.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				4305264E29C4F0E90019BBBD /* TasksList.xcdatamodeld in Sources */,
 				4305264B29C4F0E90019BBBD /* Persistence.swift in Sources */,
 				4305264429C4F0E80019BBBD /* ContentView.swift in Sources */,
+				4305265D29C608AF0019BBBD /* Formatters.swift in Sources */,
 				4305264229C4F0E80019BBBD /* TasksListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
