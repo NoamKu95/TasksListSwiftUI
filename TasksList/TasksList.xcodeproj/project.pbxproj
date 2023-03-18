@@ -25,6 +25,7 @@
 		4305264A29C4F0E90019BBBD /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4305264D29C4F0E90019BBBD /* TasksList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TasksList.xcdatamodel; sourceTree = "<group>"; };
 		4305265529C4F2EF0019BBBD /* Sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sound; sourceTree = "<group>"; };
+		4305265B29C5AB7A0019BBBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +58,14 @@
 		4305264029C4F0E80019BBBD /* TasksList */ = {
 			isa = PBXGroup;
 			children = (
-				4305264529C4F0E90019BBBD /* Assets.xcassets */,
-				4305265429C4F2DA0019BBBD /* Resources */,
+				4305265B29C5AB7A0019BBBD /* Info.plist */,
 				4305264129C4F0E80019BBBD /* TasksListApp.swift */,
-				4305264329C4F0E80019BBBD /* ContentView.swift */,
-				4305264A29C4F0E90019BBBD /* Persistence.swift */,
-				4305264C29C4F0E90019BBBD /* TasksList.xcdatamodeld */,
+				4305264529C4F0E90019BBBD /* Assets.xcassets */,
+				4305265929C5AACB0019BBBD /* Utils */,
+				4305265829C5AAC30019BBBD /* Extensions */,
+				4305265429C4F2DA0019BBBD /* Resources */,
+				4305265729C5AAB70019BBBD /* Screens */,
+				4305265A29C5AB500019BBBD /* Model */,
 				4305264729C4F0E90019BBBD /* Preview Content */,
 			);
 			path = TasksList;
@@ -82,6 +85,37 @@
 				4305265529C4F2EF0019BBBD /* Sound */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		4305265729C5AAB70019BBBD /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				4305264329C4F0E80019BBBD /* ContentView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		4305265829C5AAC30019BBBD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4305265929C5AACB0019BBBD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		4305265A29C5AB500019BBBD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4305264A29C4F0E90019BBBD /* Persistence.swift */,
+				4305264C29C4F0E90019BBBD /* TasksList.xcdatamodeld */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,11 +324,10 @@
 				DEVELOPMENT_TEAM = 346FGQ8ZC8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TasksList/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -319,11 +352,10 @@
 				DEVELOPMENT_TEAM = 346FGQ8ZC8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TasksList/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
