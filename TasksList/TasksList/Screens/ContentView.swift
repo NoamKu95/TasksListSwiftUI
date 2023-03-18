@@ -10,7 +10,11 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    
     @State private var task: String = ""
+    private var isSaveBtnDisabled: Bool {
+        task.isEmpty
+    }
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
@@ -28,6 +32,8 @@ struct ContentView: View {
 
             do {
                 try viewContext.save()
+                task = ""
+                hideKeyboard()
             } catch {
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
@@ -69,11 +75,12 @@ struct ContentView: View {
                         Text("Save")
                         Spacer()
                     }
+                    .disabled(isSaveBtnDisabled)
                     .padding()
                     .font(.headline)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
-                    .background(.pink)
+                    .background(isSaveBtnDisabled ? .gray : .pink)
                     .cornerRadius(10)
                 }
                 .padding()
@@ -84,7 +91,17 @@ struct ContentView: View {
                         NavigationLink {
                             Text("Item at \(item.timestamp!, formatter: itemFormatter)")
                         } label: {
-                            Text(item.timestamp!, formatter: itemFormatter)
+                            VStack (alignment: .leading) {
+                                Text(item.task ?? "")
+                                    .font(.headline)
+                                    .fontWeight(.bold)
+                                
+                                Text(item.timestamp!, formatter: itemFormatter)
+                                    .font(.footnote)
+                                    .foregroundColor(.gray)
+                                
+                            }
+                            .padding(.vertical, 5)
                         }
                     }
                     .onDelete(perform: deleteItems)
