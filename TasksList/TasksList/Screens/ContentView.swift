@@ -10,6 +10,7 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @State private var task: String = ""
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
@@ -43,20 +44,51 @@ struct ContentView: View {
             }
         }
     }
-
+    
     // MARK: - BODY
     var body: some View {
         NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+            VStack {
+                
+                // MARK: - ADD TASK
+                VStack (spacing: 16) {
+                    TextField("New Task", text: $task)
+                        .padding()
+                        .background(
+                            Color(UIColor.systemGray6)
+                        )
+                        .cornerRadius(10)
+                    
+                    Button(action: {
+                        addItem()
+                    }) {
+                        Spacer()
+                        Text("Save")
+                        Spacer()
                     }
+                    .padding()
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .background(.pink)
+                    .cornerRadius(10)
                 }
-                .onDelete(perform: deleteItems)
+                .padding()
+                
+                
+                List {
+                    ForEach(items) { item in
+                        NavigationLink {
+                            Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                        } label: {
+                            Text(item.timestamp!, formatter: itemFormatter)
+                        }
+                    }
+                    .onDelete(perform: deleteItems)
+                }
+                
             }
+            .navigationBarTitle("Daily Tasks", displayMode: .large)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
@@ -66,9 +98,9 @@ struct ContentView: View {
                         Label("Add Item", systemImage: "plus")
                     }
                 }
-            }
-            Text("Select an item")
         }
+        Text("Select an item")
+    }
     }
 }
 
