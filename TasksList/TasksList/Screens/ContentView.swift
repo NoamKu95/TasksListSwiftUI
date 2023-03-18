@@ -20,8 +20,11 @@ struct ContentView: View {
     // MARK: - FUNCTIONS
     private func addItem() {
         withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+            let newTask = Item(context: viewContext)
+            newTask.timestamp = Date()
+            newTask.task = task
+            newTask.id = UUID()
+            newTask.completion = false
 
             do {
                 try viewContext.save()
