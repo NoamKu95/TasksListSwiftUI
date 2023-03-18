@@ -15,7 +15,7 @@ struct ContentView: View {
     private var isSaveBtnDisabled: Bool {
         task.isEmpty
     }
-
+    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
@@ -29,7 +29,7 @@ struct ContentView: View {
             newTask.task = task
             newTask.id = UUID()
             newTask.completion = false
-
+            
             do {
                 try viewContext.save()
                 task = ""
@@ -40,11 +40,11 @@ struct ContentView: View {
             }
         }
     }
-
+    
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { items[$0] }.forEach(viewContext.delete)
-
+            
             do {
                 try viewContext.save()
             } catch {
@@ -57,66 +57,73 @@ struct ContentView: View {
     // MARK: - BODY
     var body: some View {
         NavigationView {
-            VStack {
-                
-                // MARK: - ADD TASK
-                VStack (spacing: 16) {
-                    TextField("New Task", text: $task)
-                        .padding()
-                        .background(
-                            Color(UIColor.systemGray6)
-                        )
-                        .cornerRadius(10)
-                    
-                    Button(action: {
-                        addItem()
-                    }) {
-                        Spacer()
-                        Text("Save")
-                        Spacer()
-                    }
-                    .disabled(isSaveBtnDisabled)
-                    .padding()
-                    .font(.headline)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .background(isSaveBtnDisabled ? .gray : .pink)
-                    .cornerRadius(10)
-                }
-                .padding()
-                
-                
-                List {
-                    ForEach(items) { item in
-                        NavigationLink {
-                            Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                        } label: {
-                            VStack (alignment: .leading) {
-                                Text(item.task ?? "")
-                                    .font(.headline)
-                                    .fontWeight(.bold)
-                                
-                                Text(item.timestamp!, formatter: itemFormatter)
-                                    .font(.footnote)
-                                    .foregroundColor(.gray)
-                                
-                            }
-                            .padding(.vertical, 5)
+            ZStack {
+                VStack {
+                    // MARK: - ADD TASK
+                    VStack (spacing: 16) {
+                        TextField("New Task", text: $task)
+                            .padding()
+                            .background(
+                                Color(UIColor.systemGray6)
+                            )
+                            .cornerRadius(10)
+                        
+                        Button(action: {
+                            addItem()
+                        }) {
+                            Spacer()
+                            Text("Save")
+                            Spacer()
                         }
+                        .disabled(isSaveBtnDisabled)
+                        .padding()
+                        .font(.headline)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .background(isSaveBtnDisabled ? .gray : .pink)
+                        .cornerRadius(10)
                     }
-                    .onDelete(perform: deleteItems)
+                    .padding()
+                    
+                    // MARK: - LIST
+                    List {
+                        ForEach(items) { item in
+                            NavigationLink {
+                                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                            } label: {
+                                VStack (alignment: .leading) {
+                                    Text(item.task ?? "")
+                                        .font(.headline)
+                                        .fontWeight(.bold)
+                                    
+                                    Text(item.timestamp!, formatter: itemFormatter)
+                                        .font(.footnote)
+                                        .foregroundColor(.gray)
+                                    
+                                }
+                                .padding(.vertical, 5)
+                            }
+                        }
+                        .onDelete(perform: deleteItems)
+                    }
+                    .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.5), radius: 12)
+                    .scrollContentBackground(.hidden)
+                    .background(Color.clear)
+                    .padding(.vertical, 0)
                 }
-                
-            }
+            } //: ZStack
             .navigationBarTitle("Daily Tasks", displayMode: .large)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                         .foregroundColor(.gray)
                 }
+            } //: toolbar
+            .background(
+                backgroundGradient.ignoresSafeArea(.all)
+            )
         }
-        Text("Select an item")
-    }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
