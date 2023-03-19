@@ -17,6 +17,7 @@ struct NewTaskFormView: View {
     }
     
     @Binding var isShowing: Bool
+    @AppStorage(IS_DARK_MODE) private var isDarkMode: Bool = false
     
     // MARK: - FUNCTIONS
     private func addItem() {
@@ -48,7 +49,7 @@ struct NewTaskFormView: View {
                     .font(.system(size: 24, weight: .bold, design: .rounded))
                     .padding()
                     .background(
-                        Color(UIColor.systemGray6)
+                        isDarkMode ? Color(UIColor.tertiarySystemBackground) : Color(UIColor.secondarySystemBackground)
                     )
                     .cornerRadius(10)
                 
@@ -70,7 +71,7 @@ struct NewTaskFormView: View {
             .padding(.horizontal)
             .padding(.vertical, 20)
             .background(
-                Color.white
+                isDarkMode ? Color.black : Color.white
             )
             .cornerRadius(16)
             .shadow(color: Color(red: 0, green: 0, blue:0, opacity: 0.65), radius: 24)

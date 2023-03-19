@@ -11,6 +11,7 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
+    @AppStorage(IS_DARK_MODE) private var isDarkMode: Bool = false
     @State private var shouldShowAddTask: Bool = false
     
     @FetchRequest(
@@ -36,6 +37,33 @@ struct ContentView: View {
         NavigationView {
             ZStack {
                 VStack {
+                    
+                    HStack (spacing: 10) {
+                        Text("Daily Tasks")
+                            .font(.system(.largeTitle, design: .rounded))
+                            .fontWeight(.heavy)
+                            .padding(.leading, 4)
+                        Spacer()
+                        EditButton()
+                            .font(.system(size: 16, weight: .semibold, design: .rounded))
+                            .padding(.horizontal, 10)
+                            .frame(minWidth: 70, minHeight: 24)
+                            .background(
+                                Capsule().stroke(.white, lineWidth: 2)
+                            )
+                        
+                        Button(action: {
+                            isDarkMode.toggle()
+                        }) {
+                            Image(systemName: isDarkMode ? "moon.circle.fill" : "moon.circle")
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                                .font(.system(.title, design: .rounded))
+                        }
+                    }
+                    .padding()
+                    .foregroundColor(.white)
+                    
                     Spacer(minLength: 80)
                     // MARK: - ADD TASK BTN
                     Button(action: {
@@ -91,13 +119,7 @@ struct ContentView: View {
                 }
                 
             } //: ZStack
-            .navigationBarTitle("Daily Tasks", displayMode: .large)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                        .foregroundColor(.gray)
-                }
-            } //: toolbar
+            .navigationBarHidden(true)
             .background(
                 BackgroundImageView()
             )

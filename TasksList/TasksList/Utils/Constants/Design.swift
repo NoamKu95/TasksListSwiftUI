@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+var IS_DARK_MODE = "is_dark_mode"
+
 var backgroundGradientTopLeftToBottomRight: LinearGradient {
     return LinearGradient(
         gradient: Gradient(colors: [.pink, .blue]),
