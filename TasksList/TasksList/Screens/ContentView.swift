@@ -11,7 +11,7 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-    
+    @State private var shouldShowAddTask : Bool = false
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
@@ -36,8 +36,21 @@ struct ContentView: View {
         NavigationView {
             ZStack {
                 VStack {
-                    // MARK: - ADD TASK
-                    
+                    Spacer(minLength: 80)
+                    // MARK: - ADD TASK BTN
+                    Button(action: {
+                        shouldShowAddTask = true
+                    }) {
+                        Image(systemName: "plus.circle")
+                            .font(.system(size: 30, weight: .semibold, design: .rounded))
+                        Text("New Task")
+                            .font(.system(size: 24, weight: .bold, design: .rounded))
+                    }
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 15)
+                    .background(backgroundGradientLeadingToTrailing.clipShape(Capsule()))
+                    .shadow(color: .black.opacity(0.25), radius: 8, x: 0, y: 4)
                     
                     // MARK: - LIST
                     List {
@@ -65,6 +78,12 @@ struct ContentView: View {
                     .background(Color.clear)
                     .padding(.vertical, 0)
                 }
+                
+                // MARK: - NEW TASK FORM
+                if shouldShowAddTask {
+                    NewTaskFormView()
+                }
+                
             } //: ZStack
             .navigationBarTitle("Daily Tasks", displayMode: .large)
             .toolbar {
@@ -77,7 +96,7 @@ struct ContentView: View {
                 BackgroundImageView()
             )
             .background(
-                backgroundGradient.ignoresSafeArea(.all)
+                backgroundGradientTopLeftToBottomRight.ignoresSafeArea(.all)
             )
         }
         .navigationViewStyle(StackNavigationViewStyle())
