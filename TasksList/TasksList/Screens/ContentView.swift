@@ -11,35 +11,12 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-    @State private var task: String = ""
-    private var isSaveBtnDisabled: Bool {
-        task.isEmpty
-    }
+    @State private var shouldShowAddTask: Bool = false
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
-    
-    // MARK: - FUNCTIONS
-    private func addItem() {
-        withAnimation {
-            let newTask = Item(context: viewContext)
-            newTask.timestamp = Date()
-            newTask.task = task
-            newTask.id = UUID()
-            newTask.completion = false
-            
-            do {
-                try viewContext.save()
-                task = ""
-                hideKeyboard()
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
     
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
@@ -59,31 +36,21 @@ struct ContentView: View {
         NavigationView {
             ZStack {
                 VStack {
-                    // MARK: - ADD TASK
-                    VStack (spacing: 16) {
-                        TextField("New Task", text: $task)
-                            .padding()
-                            .background(
-                                Color(UIColor.systemGray6)
-                            )
-                            .cornerRadius(10)
-                        
-                        Button(action: {
-                            addItem()
-                        }) {
-                            Spacer()
-                            Text("Save")
-                            Spacer()
-                        }
-                        .disabled(isSaveBtnDisabled)
-                        .padding()
-                        .font(.headline)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .background(isSaveBtnDisabled ? .gray : .pink)
-                        .cornerRadius(10)
+                    Spacer(minLength: 80)
+                    // MARK: - ADD TASK BTN
+                    Button(action: {
+                        shouldShowAddTask = true
+                    }) {
+                        Image(systemName: "plus.circle")
+                            .font(.system(size: 30, weight: .semibold, design: .rounded))
+                        Text("New Task")
+                            .font(.system(size: 24, weight: .bold, design: .rounded))
                     }
-                    .padding()
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 15)
+                    .background(backgroundGradientLeadingToTrailing.clipShape(Capsule()))
+                    .shadow(color: .black.opacity(0.25), radius: 8, x: 0, y: 4)
                     
                     // MARK: - LIST
                     List {
@@ -111,6 +78,18 @@ struct ContentView: View {
                     .background(Color.clear)
                     .padding(.vertical, 0)
                 }
+                
+                // MARK: - NEW TASK FORM
+                if shouldShowAddTask {
+                    BlankDarkView()
+                        .onTapGesture {
+                            withAnimation() {
+                                shouldShowAddTask = false
+                            }
+                        }
+                    NewTaskFormView(isShowing: $shouldShowAddTask)
+                }
+                
             } //: ZStack
             .navigationBarTitle("Daily Tasks", displayMode: .large)
             .toolbar {
@@ -123,7 +102,7 @@ struct ContentView: View {
                 BackgroundImageView()
             )
             .background(
-                backgroundGradient.ignoresSafeArea(.all)
+                backgroundGradientTopLeftToBottomRight.ignoresSafeArea(.all)
             )
         }
         .navigationViewStyle(StackNavigationViewStyle())
@@ -132,6 +111,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
