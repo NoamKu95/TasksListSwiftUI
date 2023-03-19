@@ -16,6 +16,8 @@ struct NewTaskFormView: View {
         task.isEmpty
     }
     
+    @Binding var isShowing: Bool
+    
     // MARK: - FUNCTIONS
     private func addItem() {
         withAnimation {
@@ -29,6 +31,7 @@ struct NewTaskFormView: View {
                 try viewContext.save()
                 task = ""
                 hideKeyboard()
+                isShowing = false
             } catch {
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
@@ -78,7 +81,7 @@ struct NewTaskFormView: View {
 
 struct NewTaskFormView_Previews: PreviewProvider {
     static var previews: some View {
-        NewTaskFormView()
+        NewTaskFormView(isShowing: .constant(true))
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
             .background(.pink)
         

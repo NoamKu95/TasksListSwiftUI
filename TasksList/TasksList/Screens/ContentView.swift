@@ -11,7 +11,7 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-    @State private var shouldShowAddTask : Bool = false
+    @State private var shouldShowAddTask: Bool = false
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
@@ -82,7 +82,12 @@ struct ContentView: View {
                 // MARK: - NEW TASK FORM
                 if shouldShowAddTask {
                     BlankDarkView()
-                    NewTaskFormView()
+                        .onTapGesture {
+                            withAnimation() {
+                                shouldShowAddTask = false
+                            }
+                        }
+                    NewTaskFormView(isShowing: $shouldShowAddTask)
                 }
                 
             } //: ZStack
