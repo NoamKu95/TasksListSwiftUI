@@ -81,6 +81,7 @@ struct ContentView: View {
                 
                 // MARK: - NEW TASK FORM
                 if shouldShowAddTask {
+                    BlankDarkView()
                     NewTaskFormView()
                 }
                 
