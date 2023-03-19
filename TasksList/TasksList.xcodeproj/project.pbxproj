@@ -20,6 +20,7 @@
 		4305266529C61CE70019BBBD /* BackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305266429C61CE70019BBBD /* BackgroundImageView.swift */; };
 		4305266729C7768A0019BBBD /* NewTaskFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305266629C7768A0019BBBD /* NewTaskFormView.swift */; };
 		4305266929C77CA40019BBBD /* BlankDarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305266829C77CA40019BBBD /* BlankDarkView.swift */; };
+		4305266B29C785390019BBBD /* ListRowItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305266A29C785390019BBBD /* ListRowItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		4305266429C61CE70019BBBD /* BackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageView.swift; sourceTree = "<group>"; };
 		4305266629C7768A0019BBBD /* NewTaskFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskFormView.swift; sourceTree = "<group>"; };
 		4305266829C77CA40019BBBD /* BlankDarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankDarkView.swift; sourceTree = "<group>"; };
+		4305266A29C785390019BBBD /* ListRowItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				4305266429C61CE70019BBBD /* BackgroundImageView.swift */,
 				4305266629C7768A0019BBBD /* NewTaskFormView.swift */,
 				4305266829C77CA40019BBBD /* BlankDarkView.swift */,
+				4305266A29C785390019BBBD /* ListRowItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				4305266729C7768A0019BBBD /* NewTaskFormView.swift in Sources */,
 				4305266929C77CA40019BBBD /* BlankDarkView.swift in Sources */,
 				4305264429C4F0E80019BBBD /* ContentView.swift in Sources */,
+				4305266B29C785390019BBBD /* ListRowItemView.swift in Sources */,
 				4305265D29C608AF0019BBBD /* Formatters.swift in Sources */,
 				4305265F29C611780019BBBD /* HideKeyboard.swift in Sources */,
 				4305264229C4F0E80019BBBD /* TasksListApp.swift in Sources */,
