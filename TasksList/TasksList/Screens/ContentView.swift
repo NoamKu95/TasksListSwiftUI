@@ -37,7 +37,6 @@ struct ContentView: View {
         NavigationView {
             ZStack {
                 VStack {
-                    
                     HStack (spacing: 10) {
                         Text("Daily Tasks")
                             .font(.system(.largeTitle, design: .rounded))
@@ -92,10 +91,16 @@ struct ContentView: View {
                     .background(Color.clear)
                     .padding(.vertical, 0)
                 }
+                .blur(radius: shouldShowAddTask ? 8.0 : 0, opaque: false)
+                .transition(.move(edge: .bottom))
+                .animation(.easeOut(duration: 0.5))
                 
                 // MARK: - NEW TASK FORM
                 if shouldShowAddTask {
-                    BlankDarkView()
+                    BlankDarkView(
+                        backgroundColor: isDarkMode ? .black : .gray,
+                        backgroundOpacity: isDarkMode ? 0.3 : 0.5
+                    )
                         .onTapGesture {
                             withAnimation() {
                                 shouldShowAddTask = false
@@ -108,6 +113,7 @@ struct ContentView: View {
             .navigationBarHidden(true)
             .background(
                 BackgroundImageView()
+                    .blur(radius: shouldShowAddTask ? 8.0 : 0, opaque: false)
             )
             .background(
                 backgroundGradientTopLeftToBottomRight.ignoresSafeArea(.all)
