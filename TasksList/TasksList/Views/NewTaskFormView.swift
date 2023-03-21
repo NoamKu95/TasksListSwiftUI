@@ -55,6 +55,7 @@ struct NewTaskFormView: View {
                 
                 Button(action: {
                     addItem()
+                    playSound(sound: "sound-ding", type: "mp3")
                 }) {
                     Spacer()
                     Text("Save")
@@ -62,6 +63,11 @@ struct NewTaskFormView: View {
                     Spacer()
                 }
                 .disabled(isSaveBtnDisabled)
+                .onTapGesture(perform: {
+                    if isSaveBtnDisabled {
+                        playSound(sound: "sound-tap", type: "mp3")
+                    }
+                })
                 .padding()
                 .fontWeight(.bold)
                 .foregroundColor(.white)

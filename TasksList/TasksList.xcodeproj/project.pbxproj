@@ -13,7 +13,6 @@
 		4305264929C4F0E90019BBBD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4305264829C4F0E90019BBBD /* Preview Assets.xcassets */; };
 		4305264B29C4F0E90019BBBD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305264A29C4F0E90019BBBD /* Persistence.swift */; };
 		4305264E29C4F0E90019BBBD /* TasksList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4305264C29C4F0E90019BBBD /* TasksList.xcdatamodeld */; };
-		4305265629C4F2F00019BBBD /* Sound in Resources */ = {isa = PBXBuildFile; fileRef = 4305265529C4F2EF0019BBBD /* Sound */; };
 		4305265D29C608AF0019BBBD /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305265C29C608AF0019BBBD /* Formatters.swift */; };
 		4305265F29C611780019BBBD /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305265E29C611780019BBBD /* HideKeyboard.swift */; };
 		4305266229C619CF0019BBBD /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305266129C619CF0019BBBD /* Design.swift */; };
@@ -22,6 +21,10 @@
 		4305266929C77CA40019BBBD /* BlankDarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305266829C77CA40019BBBD /* BlankDarkView.swift */; };
 		4305266B29C785390019BBBD /* ListRowItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305266A29C785390019BBBD /* ListRowItemView.swift */; };
 		4305266E29CA287C0019BBBD /* CheckboxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305266D29CA287C0019BBBD /* CheckboxStyle.swift */; };
+		4305267029CA30330019BBBD /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305266F29CA30330019BBBD /* SoundPlayer.swift */; };
+		4305267429CA32BB0019BBBD /* sound-ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4305267129CA32B20019BBBD /* sound-ding.mp3 */; };
+		4305267529CA32BE0019BBBD /* sound-rise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4305267329CA32B20019BBBD /* sound-rise.mp3 */; };
+		4305267629CA32C00019BBBD /* sound-tap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4305267229CA32B20019BBBD /* sound-tap.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +35,6 @@
 		4305264829C4F0E90019BBBD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4305264A29C4F0E90019BBBD /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4305264D29C4F0E90019BBBD /* TasksList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TasksList.xcdatamodel; sourceTree = "<group>"; };
-		4305265529C4F2EF0019BBBD /* Sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sound; sourceTree = "<group>"; };
 		4305265B29C5AB7A0019BBBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4305265C29C608AF0019BBBD /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		4305265E29C611780019BBBD /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
@@ -42,6 +44,10 @@
 		4305266829C77CA40019BBBD /* BlankDarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankDarkView.swift; sourceTree = "<group>"; };
 		4305266A29C785390019BBBD /* ListRowItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowItemView.swift; sourceTree = "<group>"; };
 		4305266D29CA287C0019BBBD /* CheckboxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxStyle.swift; sourceTree = "<group>"; };
+		4305266F29CA30330019BBBD /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
+		4305267129CA32B20019BBBD /* sound-ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-ding.mp3"; sourceTree = "<group>"; };
+		4305267229CA32B20019BBBD /* sound-tap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-tap.mp3"; sourceTree = "<group>"; };
+		4305267329CA32B20019BBBD /* sound-rise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-rise.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +106,9 @@
 		4305265429C4F2DA0019BBBD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4305265529C4F2EF0019BBBD /* Sound */,
+				4305267129CA32B20019BBBD /* sound-ding.mp3 */,
+				4305267329CA32B20019BBBD /* sound-rise.mp3 */,
+				4305267229CA32B20019BBBD /* sound-tap.mp3 */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -126,6 +134,7 @@
 			children = (
 				4305266029C619BF0019BBBD /* Constants */,
 				4305265C29C608AF0019BBBD /* Formatters.swift */,
+				4305266F29CA30330019BBBD /* SoundPlayer.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -224,9 +233,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4305265629C4F2F00019BBBD /* Sound in Resources */,
 				4305264929C4F0E90019BBBD /* Preview Assets.xcassets in Resources */,
+				4305267529CA32BE0019BBBD /* sound-rise.mp3 in Resources */,
 				4305264629C4F0E90019BBBD /* Assets.xcassets in Resources */,
+				4305267629CA32C00019BBBD /* sound-tap.mp3 in Resources */,
+				4305267429CA32BB0019BBBD /* sound-ding.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4305267029CA30330019BBBD /* SoundPlayer.swift in Sources */,
 				4305264E29C4F0E90019BBBD /* TasksList.xcdatamodeld in Sources */,
 				4305266229C619CF0019BBBD /* Design.swift in Sources */,
 				4305266529C61CE70019BBBD /* BackgroundImageView.swift in Sources */,
