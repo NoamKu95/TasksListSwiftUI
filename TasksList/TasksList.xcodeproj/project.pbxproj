@@ -21,6 +21,7 @@
 		4305266729C7768A0019BBBD /* NewTaskFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305266629C7768A0019BBBD /* NewTaskFormView.swift */; };
 		4305266929C77CA40019BBBD /* BlankDarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305266829C77CA40019BBBD /* BlankDarkView.swift */; };
 		4305266B29C785390019BBBD /* ListRowItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305266A29C785390019BBBD /* ListRowItemView.swift */; };
+		4305266E29CA287C0019BBBD /* CheckboxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305266D29CA287C0019BBBD /* CheckboxStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		4305266629C7768A0019BBBD /* NewTaskFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskFormView.swift; sourceTree = "<group>"; };
 		4305266829C77CA40019BBBD /* BlankDarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankDarkView.swift; sourceTree = "<group>"; };
 		4305266A29C785390019BBBD /* ListRowItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowItemView.swift; sourceTree = "<group>"; };
+		4305266D29CA287C0019BBBD /* CheckboxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,13 +74,14 @@
 		4305264029C4F0E80019BBBD /* TasksList */ = {
 			isa = PBXGroup;
 			children = (
-				4305266329C61CDD0019BBBD /* Views */,
 				4305265B29C5AB7A0019BBBD /* Info.plist */,
 				4305264129C4F0E80019BBBD /* TasksListApp.swift */,
 				4305264529C4F0E90019BBBD /* Assets.xcassets */,
 				4305265429C4F2DA0019BBBD /* Resources */,
 				4305265729C5AAB70019BBBD /* Screens */,
+				4305266329C61CDD0019BBBD /* Views */,
 				4305265A29C5AB500019BBBD /* Model */,
+				4305266C29CA285C0019BBBD /* Styles */,
 				4305265929C5AACB0019BBBD /* Utils */,
 				4305265829C5AAC30019BBBD /* Extensions */,
 				4305264729C4F0E90019BBBD /* Preview Content */,
@@ -153,6 +156,14 @@
 				4305266A29C785390019BBBD /* ListRowItemView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		4305266C29CA285C0019BBBD /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				4305266D29CA287C0019BBBD /* CheckboxStyle.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +247,7 @@
 				4305266B29C785390019BBBD /* ListRowItemView.swift in Sources */,
 				4305265D29C608AF0019BBBD /* Formatters.swift in Sources */,
 				4305265F29C611780019BBBD /* HideKeyboard.swift in Sources */,
+				4305266E29CA287C0019BBBD /* CheckboxStyle.swift in Sources */,
 				4305264229C4F0E80019BBBD /* TasksListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
