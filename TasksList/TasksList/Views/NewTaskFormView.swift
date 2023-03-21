@@ -56,6 +56,7 @@ struct NewTaskFormView: View {
                 Button(action: {
                     addItem()
                     playSound(sound: "sound-ding", type: "mp3")
+                    feedback.notificationOccurred(.success)
                 }) {
                     Spacer()
                     Text("Save")
